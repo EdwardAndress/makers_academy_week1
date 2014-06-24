@@ -6,7 +6,7 @@ The student directory script allow you to manage the list students enrolled on t
 How to use
 ----------
 
-'''shell
+```shell
 ruby directory.rb
-'''
+```
 
