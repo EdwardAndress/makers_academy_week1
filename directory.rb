@@ -1,4 +1,4 @@
-students = [
+studentss = [
 	{:name => "Dave", :cohort => :june},
 	{:name => "Eddie", :cohort => :june},
 	{:name => "Catharina", :cohort => :june},
@@ -26,6 +26,25 @@ students = [
 	{:name => "Jeremy", :cohort => :june}
 ]
 
+def input_students
+	puts "Please enter the names of the students"
+	puts "To finish, just hit return twice"
+	# creates empty array
+	students = []
+	# get the first name
+	name = gets.chomp
+	# while the name is not empty, repeat this code
+	while !name.empty? do
+		# add the student hash to the array
+		students << {:name => name, :cohort => :june}
+		puts "Now we have  #{students.length} students"
+		# get another name from the user
+		name = gets.chomp
+	end
+	# return array of the students
+	students
+end
+
 def print_header
 	puts "The students of my cohort at Makers Academy"
 	puts "----------------"
@@ -41,6 +60,7 @@ def print_footer(names)
 	puts "Overall, we have #{names.length} great students"
 end
 # Nothing will happen until the methods are called
+students = input_students
 print_header
 print(students)
 print_footer(students)
