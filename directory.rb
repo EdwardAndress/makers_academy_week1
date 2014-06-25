@@ -1,4 +1,4 @@
-studentss = [
+students = [
 	{:name => "Dave", :cohort => :june},
 	{:name => "Eddie", :cohort => :june},
 	{:name => "Catharina", :cohort => :june},
@@ -36,31 +36,36 @@ def input_students
 	# get the first name
 	name = gets.sub(/\n/, '')
 	# while the name is not empty, repeat this code
+	if name.empty?
+		puts "We have no students"
+	else
+		while !name.empty? do
 
-	while !name.empty? do
+			print "What cohort are you a part of?\n"
+			cohort = gets.chomp
+			if cohort.empty?
+				cohort = date.strftime("%B")
+			end
+			
+			print "Please tell us your favourite hobby\n"
+			hobby = gets.chomp
 
-		print "What cohort are you a part of?\n"
-		cohort = gets.chomp
-		if cohort.empty?
-			cohort = date.strftime("%B")
+			print "Please tell us your place of birth\n"
+			birthplace = gets.chomp
+
+			students << {:name => name, :cohort => cohort, :hobby => hobby, :birthplace => birthplace}
+
+			CSV.open("cohorts.csv", "ab") do |csv|
+				csv << [name, cohort, hobby, birthplace]
+			end
+
+			print "Now we have  #{students.length} students\n"
+
+			print "Please enter the name of the students\nTo finish, just hit return twice\n"
+			name = gets.chomp
 		end
-		
-		print "Please tell us your favourite hobby\n"
-		hobby = gets.chomp
-
-		print "Please tell us your place of birth\n"
-		birthplace = gets.chomp
-
-		students << {:name => name, :cohort => cohort, :hobby => hobby, :birthplace => birthplace}
-
-		CSV.open("cohorts.csv", "ab") do |csv|
-			csv << [name, cohort, hobby, birthplace]
-		end
-
-		print "Now we have  #{students.length} students\n"
-
-		print "Please enter the name of the students\nTo finish, just hit return twice\n"
-		name = gets.chomp
+		print_header
+		print_footer(students)
 	end
 	# return array of the students
 	students
@@ -122,6 +127,5 @@ end
 
 # Nothing will happen until the methods are called
 students = input_students
-print_header
+
 printer(students)
-print_footer(students)

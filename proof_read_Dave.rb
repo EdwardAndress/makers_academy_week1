@@ -10,7 +10,7 @@ def print(students)
 end
 
 def print_footer(names)
-  print "Overall, we have #{names.length} great students"
+  puts "Overall, we have #{names.length} great students"
 end
 
 def input_students
