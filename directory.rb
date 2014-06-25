@@ -1,9 +1,32 @@
 require 'csv' 
 
+def interactive_menu
+	students = []
+	loop do
+		puts "1. Input the students"
+		puts "2. Show the students"
+		puts "9. Exit"
+		selection = gets.chomp
+
+		case selection
+			when "1"
+				students = input_students
+			when "2"
+				print_header
+				printer(students)
+				print_footer(students)
+			when "9"
+				exit
+			else
+				puts "I don't know what you meant, try again please"
+		end
+	end
+end
+
 def input_students
+	students = []
 	print "Please enter the names of the students\nTo finish, just hit return twice\n"
 	# creates empty array
-	students = []
 	date = Time.new
 	# get the first name
 	name = gets.sub(/\n/, '')
@@ -73,5 +96,4 @@ def print_footer(names)
 end
 
 # Nothing will happen until the methods are called
-students = input_students
-printer(students)
+interactive_menu
