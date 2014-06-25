@@ -1,31 +1,3 @@
-students = [
-	{:name => "Dave", :cohort => :june},
-	{:name => "Eddie", :cohort => :june},
-	{:name => "Catharina", :cohort => :june},
-	{:name => "Igor", :cohort => :june},
-	{:name => "Marco", :cohort => :june},
-	{:name => "Lisa", :cohort => :june},
-	{:name => "Michiel", :cohort => :june},
-	{:name => "Jean", :cohort => :june},
-	{:name => "Nicola", :cohort => :june},
-	{:name => "Jennie", :cohort => :june},
-	{:name => "Iona", :cohort => :june},
-	{:name => "Nikesh", :cohort => :june},
-	{:name => "Chloe", :cohort => :june},
-	{:name => "Toan", :cohort => :june},
-	{:name => "Jamie", :cohort => :june},
-	{:name => "Peter", :cohort => :june},
-	{:name => "Talal", :cohort => :june},
-	{:name => "Charlie", :cohort => :june},
-	{:name => "Charlotte", :cohort => :june},
-	{:name => "Thomas", :cohort => :june},
-	{:name => "Zoe", :cohort => :june},
-	{:name => "Hannah", :cohort => :june},
-	{:name => "Joe", :cohort => :june},
-	{:name => "Alex", :cohort => :june},
-	{:name => "Jeremy", :cohort => :june}
-]
-
 require 'csv' 
 
 def input_students
@@ -76,31 +48,6 @@ def print_header
 	print "----------------\n"
 end
 
-def printer3(students)
-	students.each_with_index do |student, index|
-		if student[:name].length < 12
-			print "#{index + 1} #{student[:name]} (#{student[:cohort]} cohort)\n"
-		end
-	end
-end
-
-def printer2(students)
-	counter = 0
-	until counter == students.length
-		print "#{students[counter][:name]}".center(20), "(#{students[counter][:cohort]} cohort)".center(20), "Enjoys: #{students[counter][:hobby]}".center(20), "Place of birth: #{students[counter][:birthplace]}\n".center(20)
-		counter += 1
-	end
-end
-
-def printer4(students)
-	counter = 0
-	temp = students.select { |student| student[:cohort] == "June"}
-	until counter == temp.length
-		print "#{temp[counter][:name]}".center(20), "(#{temp[counter][:cohort]} cohort)".center(20), "Enjoys: #{temp[counter][:hobby]}".center(20), "Place of birth: #{temp[counter][:birthplace]}\n".center(20)
-		counter += 1
-	end
-end
-
 def printer(students)
 	cohorts = students.map { |student| student[:cohort]}.uniq
 
@@ -127,5 +74,4 @@ end
 
 # Nothing will happen until the methods are called
 students = input_students
-
 printer(students)
