@@ -19,8 +19,6 @@ def process(selection)
 			show_students
 		when "3"
 			save_students
-		when "4"
-			load_students
 		when "9"
 			exit
 		else
@@ -31,7 +29,19 @@ end
 def interactive_menu
 	loop do
 		print_menu
-		process(gets.chomp)
+		process(STDIN.gets.chomp)
+	end
+end
+
+def try_load_students
+	filename = ARGV.first
+	return if filename.nil?
+	if File.exists?(filename)
+		load_students(filename)
+		puts "Loaded #{@students} students from #{filename}"
+	else
+		puts "Sorry, #{filename} does not exist - please try again"
+	exit
 	end
 end
 
@@ -45,8 +55,8 @@ def save_students
 	file.close
 end
 
-def load_students
-	file = File.open("cohorts1.csv", "r")
+def load_students(filename = "students.csv")
+	file = File.open(filename, "r")
 	file.readlines.each do |line|
 		name, cohort, hobby, birthplace = line.chomp.split(',')
 		@students << {:name => name, :cohort => cohort.to_sym, :hobby => hobby, :birthplace => birthplace}
@@ -59,7 +69,7 @@ def input_students
 	# creates empty array
 	date = Time.new
 	# get the first name
-	name = gets.sub(/\n/, '')
+	name = STDIN.gets.sub(/\n/, '')
 	# while the name is not empty, repeat this code
 	if name.empty?
 		puts "We have no students"
@@ -67,23 +77,23 @@ def input_students
 		while !name.empty? do
 
 			print "What cohort are you a part of?\n"
-			cohort = gets.chomp
+			cohort = STDIN.gets.chomp
 			if cohort.empty?
 				cohort = date.strftime("%B")
 			end
 			
 			print "Please tell us your favourite hobby\n"
-			hobby = gets.chomp
+			hobby = STDIN.gets.chomp
 
 			print "Please tell us your place of birth\n"
-			birthplace = gets.chomp
+			birthplace = STDIN.gets.chomp
 
 			@students << {:name => name, :cohort => cohort, :hobby => hobby, :birthplace => birthplace}
 
 			print "Now we have  #{@students.length} students\n"
 
 			print "Please enter the name of the students\nTo finish, just hit return twice\n"
-			name = gets.chomp
+			name = STDIN.gets.chomp
 		end
 		print_header
 		print_footer
@@ -122,4 +132,5 @@ def print_footer
 end
 
 # Nothing will happen until the methods are called
+try_load_students
 interactive_menu
