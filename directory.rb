@@ -2,7 +2,7 @@
 @students = []
 
 def print_menu
-	puts "1. Input the students\n2. Show the students\n3. Save data\n9. Exit"
+	puts "1. Input the students\n2. Show the students\n3. Save data\n4. Load data\n9. Exit"
 end
 
 def show_students
@@ -19,6 +19,8 @@ def process(selection)
 			show_students
 		when "3"
 			save_students
+		when "4"
+			load_students
 		when "9"
 			exit
 		else
@@ -39,6 +41,15 @@ def save_students
 		student_data = [student[:name], student[:cohort], student[:hobby], student[:birthplace]]
 		csv_line = student_data.join(",")
 		file.puts csv_line
+	end
+	file.close
+end
+
+def load_students
+	file = File.open("cohorts1.csv", "r")
+	file.readlines.each do |line|
+		name, cohort, hobby, birthplace = line.chomp.split(',')
+		@students << {:name => name, :cohort => cohort.to_sym, :hobby => hobby, :birthplace => birthplace}
 	end
 	file.close
 end
