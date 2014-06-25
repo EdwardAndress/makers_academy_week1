@@ -34,7 +34,7 @@ def input_students
 	students = []
 	date = Time.new
 	# get the first name
-	name = gets.chomp
+	name = gets.sub(/\n/, '')
 	# while the name is not empty, repeat this code
 
 	while !name.empty? do
@@ -87,7 +87,7 @@ def printer2(students)
 	end
 end
 
-def printer(students)
+def printer4(students)
 	counter = 0
 	temp = students.select { |student| student[:cohort] == "June"}
 	until counter == temp.length
@@ -96,9 +96,30 @@ def printer(students)
 	end
 end
 
-def print_footer(names)
-	print "Overall, we have #{names.length} great students\n"
+def printer(students)
+	cohorts = students.map { |student| student[:cohort]}.uniq
+
+	counter = 0
+
+	cohorts.each do |month|
+
+		temp = students.select { |student| student[:cohort] == month}
+		until counter == temp.length
+			print "#{temp[counter][:name]}".center(20), "(#{temp[counter][:cohort]} cohort)".center(20), "Enjoys: #{temp[counter][:hobby]}".center(20), "Place of birth: #{temp[counter][:birthplace]}\n".center(20)
+			counter += 1
+		end
+		counter = 0
+	end
 end
+
+def print_footer(names)
+	if names.length > 1
+		print "Overall, we have #{names.length} great students\n"
+	else
+		print "Overall, we have #{names.length} great student\n"
+	end
+end
+
 # Nothing will happen until the methods are called
 students = input_students
 print_header
