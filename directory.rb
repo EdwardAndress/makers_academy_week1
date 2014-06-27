@@ -71,17 +71,16 @@ def input_students
 	# get the first name
 	name = STDIN.gets.sub(/\n/, '')
 	# while the name is not empty, repeat this code
-	if name.empty?
+	if name.empty? && @students.empty?
 		puts "We have no students"
 	else
 		while !name.empty? do
-
-			print "What cohort are you a part of?\n"
-			cohort = STDIN.gets.chomp
-			if cohort.empty?
-				cohort = date.strftime("%B")
+				print "What cohort are you a part of?\n"
+				cohort = STDIN.gets.chomp
+					if cohort.empty?
+					cohort = date.strftime("%B")
 			end
-			
+				
 			print "Please tell us your favourite hobby\n"
 			hobby = STDIN.gets.chomp
 
@@ -108,12 +107,13 @@ def print_header
 end
 
 def print_students_list
+	#create new array called 'cohorts' of unique months where cohorts started
 	cohorts = @students.map { |student| student[:cohort]}.uniq
 
 	counter = 0
-
+	#iterate over each element 'month' in the array 'cohorts'
 	cohorts.each do |month|
-
+		#create new array selecting student data using 'month'
 		temp = @students.select { |student| student[:cohort] == month}
 		until counter == temp.length
 			print "#{temp[counter][:name]}".center(20), "(#{temp[counter][:cohort]} cohort)".center(20), "Enjoys: #{temp[counter][:hobby]}".center(20), "Place of birth: #{temp[counter][:birthplace]}\n".center(20)
