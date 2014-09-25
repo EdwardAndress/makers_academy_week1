@@ -1,12 +1,9 @@
-Student Directory
-=================
+##Makers Academy Week 1: Student Directory
+-----------------------------------------
 
-The student directory script allow you to manage the list students enrolled on the course at Makers Academy.
+###The brief: Make a Ruby program that will accept, save and recall information about the students at Makers Academy.
 
-How to use
-----------
-
-```shell
-ruby directory.rb
-```
-
+###Skills / lessons learnt:
+ Basic Ruby syntax and methods
+ Why the Single Responsibility Principle is so important!
+ An introduction to pair programming
