@@ -14,12 +14,12 @@
  * Sublime text
 
 ####Set it up:
-'''sh
+```sh
 git clone https://github.com/EdwardAndress/makers_academy_week1-student_directory.git
-'''
+```
 
 ####Run it:
-'''sh
+```sh
 cd makers_academy_week1-student_directory
 ruby directory.rb
-'''
+```
