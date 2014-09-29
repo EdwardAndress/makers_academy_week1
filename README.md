@@ -11,7 +11,6 @@
 
 ####Technologies used:
  * Ruby
- * Sublime text
 
 ####Set it up:
 ```sh
