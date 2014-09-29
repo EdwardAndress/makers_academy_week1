@@ -15,11 +15,11 @@
 
 ####Set it up:
 ```sh
-git clone https://github.com/EdwardAndress/makers_academy_week1-student_directory.git
+$ git clone https://github.com/EdwardAndress/makers_academy_week1-student_directory.git
 ```
 
 ####Run it:
 ```sh
-cd makers_academy_week1-student_directory
-ruby directory.rb
+$ cd makers_academy_week1-student_directory
+$ ruby directory.rb
 ```
