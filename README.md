@@ -1,7 +1,8 @@
 ###Makers Academy Week 1: Student Directory
 -----------------------------------------
 
-####The brief: Make a Ruby program that will accept, save and recall information about the students at Makers Academy.
+####Specifications: 
+* Make a Ruby program that will accept, save and recall information about the students at Makers Academy.
 
 ####Skills / lessons learnt:
  * Basic Ruby syntax and methods
