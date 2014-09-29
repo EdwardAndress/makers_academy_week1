@@ -1,10 +1,14 @@
 ###Makers Academy Week 1: Student Directory
 -----------------------------------------
 
-####Specifications: 
-* Make a Ruby program that will accept, save and recall information about the students at Makers Academy.
+####Specification: 
+ * Build a piece of software, using Ruby, that will accept, recall and sort student data.
 
 ####Skills / lessons learnt:
  * Basic Ruby syntax and methods
  * Why the Single Responsibility Principle is so important!
  * An introduction to pair programming
+
+####Technologies used:
+ * Ruby
+ * Sublime text
