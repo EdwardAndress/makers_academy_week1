@@ -8,9 +8,11 @@
  * Basic Ruby syntax and methods
  * Why the Single Responsibility Principle is so important!
  * An introduction to pair programming
+ * Use of distributed version control (Git and GitHub)
 
 ####Technologies used:
  * Ruby
+ * Git
 
 ####Set it up:
 ```sh
