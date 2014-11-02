@@ -1,4 +1,4 @@
-###Makers Academy Week 1: Student Directory
+###[Makers Academy] Week 1: Student Directory
 -----------------------------------------
 
 ####Specification: 
@@ -24,3 +24,4 @@ $ git clone https://github.com/EdwardAndress/makers_academy_week1-student_direct
 $ cd makers_academy_week1-student_directory
 $ ruby directory.rb
 ```
+[Makers Academy]: http://makersacademy.com
